@@ -1,0 +1,18 @@
+<h1 class="display-4 text-primary">次の予定<br>Tasks#show</h1>
+<p>※「<%= @task.title %>」のデータ</p>
+<table class="table">
+  <tr><th width="200">Id</th>
+    <td><%= @task.id %></td></tr>
+  <tr><th>タイトル</th>
+    <td><%= @task.title %></td></tr>
+  <tr><th>開始日</th>
+    <td><%= @task.start_date %></td></tr>
+  <tr><th>終了日</th>
+    <td><%= @task.end_date %></td></tr>
+  <tr><th>更新日</th>
+    <td><%= @task.update_date %></td></tr>
+  <tr><th>コメント</th>
+    <td><%= @task.memo %></td></tr>
+  </tr>  
+</table>
+<p><a href="/tasks">&lt;&lt; ※トップページに戻る</a></p>
