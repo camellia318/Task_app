@@ -1,0 +1,29 @@
+<h1 class="display-4 text-primary">スケジュール管理アプリ<br>Tasks#index</h1>
+<p>※現在、登録されているデータの一覧です。</p>
+<table class="table">
+  <tr>
+    <th>ID</th><th>タイトル</th>
+  </tr>
+  <% @tasks.each do |obj| %>
+  <tr>
+    <td width="35px"><%= obj.id %></td>
+    <td width="50%"><a href="/tasks/<%= obj.id %>">
+      <%= obj.title %></a></td>
+    <td width="80px">
+      <a href="/tasks/edit/<%= obj.id %>">編集</a>
+    </td>  
+    <td width="80px">
+      <a href="javascript:delData(<%= (obj.id.to_s + ",'".to_s + obj.title.to_s).html_safe %>');">削除</a>
+    </td>  
+  </tr>
+  <% end %>
+</table>
+
+<p><a href="/tasks/add">※新しいデータを入力 &gt;&gt;</a></p>
+<script>
+  function delData(id,title){
+    if (confirm('「' + title + '」のデータを削除しますか？')){
+      document.location = "/tasks/delete/" + id;
+    }
+  }
+</script>
